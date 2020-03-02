@@ -1,0 +1,14 @@
+<div class="flex-container">
+  <mat-card class="match-thumbnail" *ngFor="let mat of matches" >
+    <mat-card-header class="match-header" >
+        <mat-card-title class="match-title"> {{mat?.id | uppercase}}</mat-card-title>
+        <mat-card-subtitle class="match-subtitle"> {{mat?.attributes?.createdAt  | date}}</mat-card-subtitle>
+    </mat-card-header>
+    <img class="match-image" mat-card-image  src="http://pngimg.com/uploads/pubg/pubg_PNG58.png">
+    
+    <mat-card-actions class="m-actions" >
+        <button  mat-raised-button color="primary" class="view-match-detail" [routerLink]="['/match',mat.id ]">View Match Details</button>
+       
+    </mat-card-actions>
+  </mat-card>
+  </div>

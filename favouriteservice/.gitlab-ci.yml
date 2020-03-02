@@ -1,0 +1,26 @@
+image: 'maven:3-jdk-8'
+stages:
+  - test
+  - build
+services:
+  - 'mongo:3.4-jessie'
+variables:
+  MONGO_DATABASENAME: "pubg"
+  MONGO_URL: "mongodb://mongo/pubg"
+cache:
+  paths:
+    - .m2/repository
+    - target
+maven-test:
+  stage: test
+  script: "mvn test"
+  tags:
+    - cts-runner
+maven-build:
+  stage: build
+  script: "mvn package"
+  tags:
+    - cts-runner
+  artifacts:
+    paths:
+      - target/*.jar

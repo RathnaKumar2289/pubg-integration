@@ -1,0 +1,38 @@
+.header{
+    padding-top: 1em;
+    text-align: center;
+    color:brown;
+    background-color: burlywood;   
+    font-family: 'Josefin Sans', sans-serif;  
+    margin:auto;
+    height: 5vh;
+}
+
+.match-header{
+    font-family: 'Josefin Sans', sans-serif;
+    margin:auto;
+}
+.match-thumbnail{
+    height: 55vh;
+    width: 25vw;
+    margin: 1.5em;
+    text-align: center;
+    background-color: #ffff;
+    flex-direction: column;
+}
+.match-image{
+    height: 30vh;
+    width: 15vw;
+    margin: auto
+}
+
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;   
+
+  }
+  
+
+ 

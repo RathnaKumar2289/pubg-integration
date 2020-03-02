@@ -1,0 +1,51 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+.mat-snack-bar-container {
+    color: black;
+    background: #fff;
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+}
+@media(max-width:575px){
+    .mat-button{
+        font-size: 0.8em !important;
+    }
+
+    .mat-form-field-infix {
+        display: block;
+        position: relative;
+        flex: auto;
+        min-width: 0;
+        width: 95px !important;
+    }
+
+    .mat-card{
+        display: flex;
+        flex-direction: column;
+        height: 55vh;
+        width: 47vw !important;
+        text-align: center;
+        background-color: #fff;
+        margin: auto;
+        margin-top: 5em;
+    }
+
+    .image {
+        height: 40vh;
+        width: 35vw !important;
+        margin: auto;
+    }
+    
+    .match-title {
+        font-family: 'Josefin Sans', sans-serif;
+        margin:auto;
+        font-size: 0.9em !important;
+    }
+
+    .matchcontent{
+        font-family: 'Josefin Sans', sans-serif; 
+        margin: auto; 
+        font-size: 0.8em !important;
+    }
+    
+    
+    
+}

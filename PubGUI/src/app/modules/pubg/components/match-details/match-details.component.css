@@ -1,0 +1,19 @@
+.matchdetail-header{
+    padding-top: 1em;
+    text-align: center;
+    color:brown;
+    background-color: burlywood;   
+    font-family: 'Josefin Sans', sans-serif;  
+    margin: auto;
+    height: 5vh;
+}
+
+
+.matchdetail-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;   
+
+  }
+
+ 

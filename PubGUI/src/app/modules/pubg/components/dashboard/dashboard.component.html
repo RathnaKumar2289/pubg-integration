@@ -1,0 +1,17 @@
+
+<div class="container" >  
+  <mat-card class="example-card" *ngFor = "let tournament of tournaments">
+  <mat-card-header class="header">
+    <mat-card-title>{{tournament.id | uppercase}}</mat-card-title>
+    <mat-card-subtitle>{{tournament?.attributes?.createdAt  | date}}</mat-card-subtitle>
+  </mat-card-header>
+
+  <img mat-card-image class="image" src='assets/images/PUBG-PNG-Pic.png' alt="PUBG">
+  <mat-card-actions class="m-actions">
+   
+   <button  class="viewmatches" mat-raised-button color="primary" [routerLink]="['/matches', tournament.id ]">View Mathes</button>
+   
+</mat-card-actions>
+
+</mat-card>
+</div>

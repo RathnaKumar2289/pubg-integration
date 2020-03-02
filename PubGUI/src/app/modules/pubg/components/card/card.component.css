@@ -1,0 +1,29 @@
+
+.matchcontent{
+    font-family: 'Josefin Sans', sans-serif; 
+    margin: auto; 
+}
+
+.mat-card-header{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.match-thumbnail{
+    height: 75vh;
+    width: 40vw;
+    margin: 1.5em;
+    text-align: center;
+    background-color: beige;
+    flex-direction: column;
+}
+.match-image{
+    height: 50vh;
+    width: 30vw;
+    margin: auto
+}
+
+.mat-fab.mat-accent, .mat-flat-button.mat-accent, .mat-mini-fab.mat-accent, .mat-raised-button.mat-accent {
+    background-color: rgb(245, 168, 68);
+    margin-left: 4vh;
+}

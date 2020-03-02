@@ -1,0 +1,46 @@
+version: '3'
+services:
+  authservice:
+    image: kumar1991/pubgauthservice:v2
+    restart: always
+    network_mode: host
+    container_name: authServiceCon
+    depends_on:
+      - mysql
+    ports:
+      - 8084:8084
+
+  favouriteservice:
+    image: kumar1991/pubg-favouriteservice:v2
+    restart: always
+    network_mode: host
+    container_name: favouriteServiceCon
+    depends_on:
+      - mongo
+    ports:
+      - 8085:8085
+
+  mysql:
+    image: mysql:5.5
+    ports:
+      - 3306:3306
+    container_name: mysql_container
+    network_mode: host
+    environment:
+      MYSQL_DATABASE: UserDb
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: root
+
+  angular:
+    image: kumar1991/pubgui:v2
+    network_mode: host
+    container_name: angular-docker
+    ports:
+      - 8080:8080
+
+  mongo:
+    image: mongo:3.4-xenial
+    ports:
+      - "27017:27017"
+    container_name: mongo
+    network_mode: host

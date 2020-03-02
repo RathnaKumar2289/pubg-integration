@@ -1,0 +1,8 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+   <img class ="image-class" src="assets\images\pubg-logo.jpg">  
+   <button class="mat-button-tournaments"[routerLink]="['/tournaments']" mat-button>Tournaments</button>
+   <button class="mat-button-favouritematch"[routerLink]="['/favouritelist']" mat-button>FavouriteMatches</button>
+    <button class="mat-button-logout" (click)="logout()" mat-button >Logout</button>
+  </mat-toolbar-row>
+  </mat-toolbar>

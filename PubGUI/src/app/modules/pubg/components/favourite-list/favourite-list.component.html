@@ -1,0 +1,9 @@
+<div class="container"> 
+
+  <app-card *ngFor="let match of favouriteMatches" [match]=match [favoriteList]=favoriteList
+  (deleteFromFavouriteList)="deleteFromFavouriteList($event)"
+  (updateFavouriteComments)="updateComments($event)"></app-card>
+ 
+ 
+
+  </div>

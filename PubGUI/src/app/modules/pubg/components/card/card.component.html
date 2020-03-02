@@ -1,0 +1,34 @@
+<mat-card class="match-thumbnail">
+  <mat-card-header class="matcardheader">
+    <mat-card-title class="match-title">{{match?.attributes.titleId | uppercase}}</mat-card-title>
+    <mat-card-subtitle>{{match?.attributes.createdAt| date}} </mat-card-subtitle>
+  </mat-card-header>
+  <img class="match-image" mat-card-image
+    src="https://image.redbull.com/rbcom/052/2018-04-05/f8336755-0c26-4322-98e2-74eddced0024/0010/1/800/533/1/pubg-mobile-loot.jpg">
+  <mat-card-content class="matchcontent">
+    GAME MODE: {{match?.attributes?.gameMode | titlecase}}
+    <br>
+    MAP NAME: {{match?.attributes?.mapName | titlecase}}
+    <br>
+    DURATION: {{match?.attributes?.duration}}
+  </mat-card-content>
+
+  <mat-card-actions class="match-actions">
+    <button mat-mini-fab class="addButton" *ngIf="!favoriteList"  matTooltip="Add to Favorite" (click)="addToFavourite(match)">
+      <mat-icon > <i class="material-icons">favorite</i></mat-icon>
+    </button> 
+
+    <button class="updatebutton" *ngIf="favoriteList" matTooltip="Update Comments"
+     (click)="updateComments()"     mat-mini-fab>
+      <mat-icon>
+        <i class="material-icons">create</i> </mat-icon>
+    </button>
+
+    <button class="deletebutton" *ngIf="favoriteList" matTooltip="Delete From FavoriteList"
+    (click)="deleteButtonClick(match)" mat-mini-fab>
+      <mat-icon>
+        <i class="material-icons">delete</i> </mat-icon>
+    </button>
+
+  </mat-card-actions>
+</mat-card>
