@@ -43,9 +43,9 @@ public class UserServiceTest {
 
   @Test
   public void testFindByUserNameAndPassword(){
-    Mockito.when(userRepository.findByUserNameAndAndPassword(user.getUserName(),user.getPassword())).thenReturn(user);
-    User fetchedUser = userRepository.findByUserNameAndAndPassword(user.getUserName(),user.getPassword());
+    Mockito.when(userRepository.findByUserNameAndPassword(user.getUserName(),user.getPassword())).thenReturn(user);
+    User fetchedUser = userRepository.findByUserNameAndPassword(user.getUserName(),user.getPassword());
     Assert.assertEquals(user.getUserName(),fetchedUser.getUserName());
-    verify(userRepository,times(1)).findByUserNameAndAndPassword(user.getUserName(),user.getPassword());
+    verify(userRepository,times(1)).findByUserNameAndPassword(user.getUserName(),user.getPassword());
   }
 }

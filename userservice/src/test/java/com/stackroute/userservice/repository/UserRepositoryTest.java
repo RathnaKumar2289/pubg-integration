@@ -41,7 +41,7 @@ public class UserRepositoryTest {
 
   public void testUserLoginSuccess(){
     userRepository.save(user);
-    User userObj = userRepository.findByUserNameAndAndPassword(user.getUserName(),user.getPassword());
+    User userObj = userRepository.findByUserNameAndPassword(user.getUserName(),user.getPassword());
     Assert.assertEquals(user.getUserName(),userObj.getUserName());
     userRepository.delete(user);
   }

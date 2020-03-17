@@ -1,16 +1,21 @@
 package com.stackroute.favouriteservice.domain;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+@ApiModel(description = "Individual Match Details")
 @Document
 public class Match {
+	@ApiModelProperty(notes = "Primary Id of Match")
     @Id
     private String id;
+	@ApiModelProperty(notes = "Match comments")
     @JsonProperty
     private String comments;
+	@ApiModelProperty(notes = "Match Attributes")
     private MatchAttributes attributes;
     
     public Match() {}
