@@ -1,0 +1,59 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: pubg-user-service
+  name: pubg-user-service
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        io.kompose.service: pubg-user-service
+    spec:
+      containers:
+        - env:
+            - name: MYSQL_DATABASE
+              #configmap configuration - kubectl create configmap pubg-userservice-config --from-literal=MYSQL_DATABASE=UserDb
+              #value: UserDb
+              valueFrom:
+                configMapKeyRef:
+                  key: MYSQL_DATABASE
+                  name: pubg-userservice-config
+            - name: MYSQL_USER
+              valueFrom:
+                configMapKeyRef:
+                  key: MYSQL_USER
+                  name: pubg-userservice-config
+            - name: MYSQL_PASSWORD
+              #Secret configuration - kubectl create secret generic pubg-user-service-secret --from-literal=MYSQL_PASSWORD=root
+              valueFrom:
+                 secretKeyRef:
+                    key: MYSQL_PASSWORD
+                    name: pubg-user-service-secret
+            - name: MYSQL_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: MYSQL_URL
+                  name: pubg-userservice-config
+          image: kumar1991/pubgauthservice:v2
+          name: pubg-user-service
+          ports:
+            - containerPort: 8084
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    io.kompose.service: pubg-user-service
+  name: pubg-user-service
+spec:
+  type: LoadBalancer
+  ports:
+    - name: "8084"
+      port: 8084
+      targetPort: 8084
+  selector:
+    io.kompose.service: pubg-user-service
+

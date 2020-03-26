@@ -1,0 +1,44 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: pubg-user-service
+  name: pubg-user-service
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        io.kompose.service: pubg-user-service
+    spec:
+      containers:
+        - env:
+            - name: MYSQL_DATABASE
+              value: UserDb
+            - name: MYSQL_USER
+              value: root
+            - name: MYSQL_PASSWORD
+              value: root
+            - name: MYSQL_URL
+              value: jdbc:mysql://mysql:3306/UserDb
+          image: kumar1991/pubgauthservice:v2
+          name: pubg-user-service
+          ports:
+            - containerPort: 8084
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    io.kompose.service: pubg-user-service
+  name: pubg-user-service
+spec:
+  type: LoadBalancer
+  ports:
+    - name: "8084"
+      port: 8084
+      targetPort: 8084
+  selector:
+    io.kompose.service: pubg-user-service
+
